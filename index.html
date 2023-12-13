@@ -23,8 +23,16 @@
           <button class="btn btn-primary font-size-36px btn-sm">Geografie</button>
         </div> 
       </div>
-        <div class="card-body">
-          <img class="question-img" src="./img/question.jpg" alt="">
+
+      <div class="card-body font-rubik" id="endScreen" style="display: none;">
+        <div class="text-center">Quizz Beendet!</div>
+        <div class="winner-img"><img src="./img/winner.png" alt=""></div>
+        <div class="text-center">Du Hast <b id="amountCorrectAnswers">XXX</b> von <b id="amountOfQuestions">XXX</b> richtig beantwortet!</div>
+        <div class="button-row"><button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button></div>
+        
+      </div>
+
+        <div class="card-body" id="quiz-body">
           <h5 id="question-text" class="card-title">Frage</h5>
 
           <div class="answer-container" >
@@ -53,8 +61,8 @@
         </div>
           <div class="h-line"></div>
           <div class="question-counter">
-           <span class="gap-8px"> <b>1</b>von<b id="all-questions">5</b> Fragen </span>
-            <button class="btn btn-primary">Nächste Frage</button>
+           <span class="gap-8px"> <b id="question-number">1</b>von<b id="all-questions">5</b> Fragen </span>
+            <button onclick="nextQuestion()" id="next-button" class="btn btn-primary" disabled>Nächste Frage</button>
           </div>
 
         </div>

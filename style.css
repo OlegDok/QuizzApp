@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "rubik-r";
+    src: url("./fonts/Rubik-Regular.ttf");
+  }
+  @font-face {
+    font-family: "rubik-m";
+    src: url("./fonts/Rubik-Medium.ttf");
+  }
+
 body{
     min-height: 100vh;
     background-color:#FEFAEF!important;
@@ -5,8 +14,20 @@ body{
     justify-content: center;
     align-items: center;
 }
+.button-row{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
 h5{
     font-size: 2.25rem!important;
+    font-family: rubik-m;
+}
+.text-center{
+    text-align: center;
+}
+.font-rubik-r{
+    font-family: rubik-r;
 }
 .width-85-vw{
     width: 85vw !important;
@@ -25,6 +46,7 @@ h5{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 120px
 }
 .h-line{
     height: 1px;
@@ -34,7 +56,6 @@ h5{
 }
 .card{
     flex-direction: row!important;
-    margin: 40px;
 }
 .subjekt-buttons{
     background-color: #052C65;
@@ -59,9 +80,9 @@ h5{
     flex: 1 1 auto;
     padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
     color: var(--bs-card-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    font-family: rubik-r;
+    font-size: 26px;
+    font-family: 400;
 }
 .margin-lr-16px{
     margin-right: 16px;
@@ -81,4 +102,9 @@ h5{
     display: flex;
     flex-direction: column;
     gap: 16px;
+    font-family: rubik-r;
+}
+.winner-img{
+    display: flex;
+    justify-content: center;
 }
