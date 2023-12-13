@@ -1,0 +1,84 @@
+body{
+    min-height: 100vh;
+    background-color:#FEFAEF!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h5{
+    font-size: 2.25rem!important;
+}
+.width-85-vw{
+    width: 85vw !important;
+}
+.height-70-vh{
+    height: 70vh!important;
+}
+.gap-8px{
+    display: flex;
+    gap: 8px;
+}
+.padding-bottom-80px{
+    padding-bottom: 80px;
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h-line{
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    margin-top: 24px;
+}
+.card{
+    flex-direction: row!important;
+    margin: 40px;
+}
+.subjekt-buttons{
+    background-color: #052C65;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+.font-size-36px{
+    font-size: 22px!important;
+    font-weight: 500!important;
+}
+.question-counter{
+    display: flex;
+    justify-content:space-between;
+    
+}
+.mb-2 {
+    margin-top: 0.5rem!important;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.margin-lr-16px{
+    margin-right: 16px;
+    margin-left: 16px;
+}
+.quizz-answer-card:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.question-img{
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 90%;
+}
+.topic-button{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
