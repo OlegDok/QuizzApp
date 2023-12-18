@@ -20,45 +20,6 @@ function closeStartSite() {
 }
 
 
-function showEndScreen(){
-  if (isOnPage == 1) {
-    showHistoryEndScreen();
-  }
-  if (isOnPage == 2) {
-    showScienceEndScreen();
-  }
-  if (isOnPage == 3) {
-    showSportEndScreen();
-  }
-    AUDIO_FINISH.play();
-}
-
-
-function updateToNextQuestion(){
-  if (isOnPage == 1) {
-    updateToHistory();
-  }
-  if (isOnPage == 2) {
-    updateToScience();
-  }
-  if (isOnPage == 3) {
-    updateToSport();
-  }
-}
-
-
-function updateProgressBar(){
-  if (isOnPage == 1) {
-    historyProgressBar();
-  }
-  if (isOnPage == 2) {
-    scienceProgressBar();
-  }
-  if (isOnPage == 2) {
-    sportProgressBar();
-  }
-}
-
 function showQuestion() {
   if (gameIsOver()) {
     showEndScreen();
@@ -68,6 +29,60 @@ function showQuestion() {
   }
 }
 
+
+function showEndScreen(){
+  if (isOnPage == 1) {
+    showHistoryEndScreen();
+  } else if (isOnPage == 2) {
+    showScienceEndScreen();
+  } else if (isOnPage == 3) {
+    showSportEndScreen();
+  } else if (isOnPage == 4) {
+    showGeoEndScreen();
+  }
+    AUDIO_FINISH.play();
+}
+
+
+function updateToNextQuestion(){
+  if (isOnPage == 1) {
+    updateToHistory();
+  } else if (isOnPage == 2) {
+    updateToScience();
+  }  else if (isOnPage == 3) {
+    updateToSport();
+  } else if (isOnPage == 4) {
+    updateToGeo();
+  }
+}
+
+
+function updateProgressBar(){
+  if (isOnPage == 1) {
+    historyProgressBar();
+  } else if (isOnPage == 2) {
+    scienceProgressBar();
+  } else if (isOnPage == 3) {
+    sportProgressBar();
+  } else if (isOnPage == 4) {
+    geoProgressBar();
+  }
+}
+
+
+function gameIsOver(){
+  if (isOnPage == 1) {
+    return currentQuestion >= historyQuestions.length;
+  } else if (isOnPage == 2) {
+    return currentQuestion >= scienceQuestions.length;
+  } else if (isOnPage == 3) {
+    return currentQuestion >= sportQuestions.length;
+  } else if (isOnPage == 4) {
+    return currentQuestion >= geoQuestions.length;
+  }
+}
+
+
 function answer(selection) {
   if (isOnPage == 1) {
     handleAnswerForPage(historyQuestions, selection);
@@ -75,10 +90,14 @@ function answer(selection) {
     handleAnswerForPage(scienceQuestions, selection);
   } else if (isOnPage == 3) {
     handleAnswerForPage(sportQuestions, selection);
+  } else if (isOnPage == 4) {
+    handleAnswerForPage(sportQuestions, selection);
   }
 
   document.getElementById("next-button").disabled = false;
 }
+
+
 function handleAnswerForPage(questions, selection) {
   let question = questions[currentQuestion];
   let selectedQuestionNumber = selection.slice(-1);
@@ -118,17 +137,6 @@ function resetAnswerButtons() {
   document.getElementById("answer_3").parentNode.classList.remove("bg-danger");
   document.getElementById("answer_4").parentNode.classList.remove("bg-success");
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
-}
-
-
-function gameIsOver(){
-  if (isOnPage == 1) {
-    return currentQuestion >= historyQuestions.length;
-  } else if (isOnPage == 2) {
-    return currentQuestion >= scienceQuestions.length;
-  } else if (isOnPage == 3) {
-    return currentQuestion >= sportQuestions.length;
-  }
 }
 
 
@@ -264,5 +272,46 @@ function showSportEndScreen(){
   document.getElementById("endScreen").style = "";
     document.getElementById("quiz-body").style = "display:none";
     document.getElementById("amountOfQuestions").innerHTML = sportQuestions.length;
+    document.getElementById("amountCorrectAnswers").innerHTML = rightQuestion;
+}
+
+
+// GEO AREA
+
+function geoQuestion() {
+  closeStartSite();
+  isOnPage = 4;
+  updateToNextQuestion();
+  geoQuestionsArrayLen();
+  showQuestion();
+}
+
+function geoQuestionsArrayLen() {
+  document.getElementById("all-questions").innerHTML = geoQuestions.length;
+}
+
+function updateToGeo(){
+    let question = geoQuestions[currentQuestion];
+    document.getElementById("question-number").innerHTML = currentQuestion + 1;
+    document.getElementById("question-text").innerHTML = question["question"];
+    document.getElementById("answer_1").innerHTML = question["answer_1"];
+    document.getElementById("answer_2").innerHTML = question["answer_2"];
+    document.getElementById("answer_3").innerHTML = question["answer_3"];
+    document.getElementById("answer_4").innerHTML = question["answer_4"];
+}
+
+
+function geoProgressBar(){
+  let percent = (currentQuestion + 1) / geoQuestions.length;
+    percent = Math.round(percent * 100);
+    document.getElementById(`progress-bar`).innerHTML = `${percent}% `;
+    document.getElementById(`progress-bar`).style = `width: ${percent}%;`;
+}
+
+
+function showGeoEndScreen(){
+  document.getElementById("endScreen").style = "";
+    document.getElementById("quiz-body").style = "display:none";
+    document.getElementById("amountOfQuestions").innerHTML = geoQuestions.length;
     document.getElementById("amountCorrectAnswers").innerHTML = rightQuestion;
 }

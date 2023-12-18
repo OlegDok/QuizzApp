@@ -142,7 +142,7 @@ let historyQuestions = [
     }
   ];
   
-  let geoQuesion =[
+  let geoQuestions =[
     {
       question: "Was ist der größte Kontinent der Erde?",
       answer_1: "Europa",
