@@ -8,7 +8,6 @@ let AUDIO_FINISH = new Audio(`audio/finish.mp3`);
 
 
 function init() {
-  document.getElementById("quiz-body").style = "display:none";
   document.getElementById("startSite").style = "";
 
 }
