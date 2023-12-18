@@ -98,6 +98,11 @@ h5{
     object-fit: cover;
     opacity: 90%;
 }
+.brain-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .topic-button{
     display: flex;
     flex-direction: column;
