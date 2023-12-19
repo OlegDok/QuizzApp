@@ -1,0 +1,47 @@
+@media(max-width : 950px){
+    .main-container{
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+    .card{ flex-direction: column!important;
+        }
+    .subjekt-buttons {
+            padding-bottom: 0;
+        }
+    .margin-lr-16px {
+            margin-right: 16px;
+            margin-left: 16px;
+        }
+    .topic-button {
+            flex-direction: row;
+            padding-bottom: 20px;
+        }
+    .header-img{
+            width: 200px;
+        }
+    .padding-bottom-80px {
+            padding-bottom: 40px;
+        }
+        .h-line{
+            display: none;
+        }
+        .brain-img{
+            height: 100%;
+        }
+    
+}
+@media (max-width:580px){
+    .topic-button {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+}
+@media (max-width:480px){
+    .main-container{
+        margin:0;
+    }
+}
+
+@media (min-width : 1600px) {
+    
+}
