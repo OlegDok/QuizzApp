@@ -1,6 +1,7 @@
 let isOnPage = 0;
 let rightQuestion = 0;
 let currentQuestion = 0;
+let answerExucuted = false;
 
 let AUDIO_SUCCESS = new Audio(`audio/success.mp3`);
 let AUDIO_FAIL = new Audio(`audio/error.mp3`);
@@ -9,7 +10,7 @@ let AUDIO_FINISH = new Audio(`audio/finish.mp3`);
 
 function init() {
   document.getElementById("startSite").style = "";
-
+  document.getElementById("quiz-body").style = "display:none";
 }
 
 
@@ -20,7 +21,7 @@ function closeStartSite() {
 
 
 function showQuestion() {
-  if (gameIsOver()) {
+  if (isGameOver()) {
     showEndScreen();
   } else {
     updateProgressBar();
@@ -69,7 +70,7 @@ function updateProgressBar(){
 }
 
 
-function gameIsOver(){
+function isGameOver(){
   if (isOnPage == 1) {
     return currentQuestion >= historyQuestions.length;
   } else if (isOnPage == 2) {
@@ -81,8 +82,7 @@ function gameIsOver(){
   }
 }
 
-
-function answer(selection) {
+function answer(selection) {  
   if (isOnPage == 1) {
     handleAnswerForPage(historyQuestions, selection);
   } else if (isOnPage == 2) {
@@ -90,9 +90,9 @@ function answer(selection) {
   } else if (isOnPage == 3) {
     handleAnswerForPage(sportQuestions, selection);
   } else if (isOnPage == 4) {
-    handleAnswerForPage(sportQuestions, selection);
+    handleAnswerForPage(geoQuestions, selection);
   }
-
+  answerExucuted = true;
   document.getElementById("next-button").disabled = false;
 }
 
@@ -102,14 +102,19 @@ function handleAnswerForPage(questions, selection) {
   let selectedQuestionNumber = selection.slice(-1);
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
-  if (rightAnswerSelected(selectedQuestionNumber, question)) {
-    document.getElementById(selection).parentNode.classList.add("bg-success");
-    rightQuestion++;
-    AUDIO_SUCCESS.play();
+  if (answerExucuted === true) {
+    console.log("sie haben schon eine Antwort gewählt");
   } else {
-    document.getElementById(selection).parentNode.classList.add("bg-danger");
-    document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
-    AUDIO_FAIL.play();
+
+    if (rightAnswerSelected(selectedQuestionNumber, question)) {
+      document.getElementById(selection).parentNode.classList.add("bg-success");
+      rightQuestion++;
+      AUDIO_SUCCESS.play();
+    } else {
+      document.getElementById(selection).parentNode.classList.add("bg-danger");
+      document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
+      AUDIO_FAIL.play();
+    }
   }
 }
 
@@ -120,6 +125,7 @@ function rightAnswerSelected(selectedQuestionNumber,question){
 
 
 function nextQuestion() {
+  answerExucuted = false;
   currentQuestion++;
   document.getElementById("next-button").disabled = true;
   resetAnswerButtons();
@@ -140,7 +146,7 @@ function resetAnswerButtons() {
 
 
 function restartGame() {
-  isOnPage =0;
+  isOnPage = 0;
   rightQuestion = 0;
   currentQuestion = 0;
   document.getElementById("endScreen").style = "display:none";
@@ -154,13 +160,14 @@ function restartGame() {
 
 function historyQuestion() {
   closeStartSite();
+  currentQuestion = 0;
   isOnPage = 1
-  questionsArrayLen();
+  historyQuestionsArrayLen();
   showQuestion();
 }
 
 
-function questionsArrayLen() {
+function historyQuestionsArrayLen() {
   document.getElementById("all-questions").innerHTML = historyQuestions.length; 
 }
 
@@ -184,7 +191,7 @@ function updateToHistory () {
 
 
 function showHistoryEndScreen(){
-  document.getElementById("endScreen").style = "";
+      document.getElementById("endScreen").style = "";
       document.getElementById("quiz-body").style = "display:none";
       document.getElementById("amountOfQuestions").innerHTML = historyQuestions.length;
       document.getElementById("amountCorrectAnswers").innerHTML = rightQuestion;
@@ -197,6 +204,7 @@ function showHistoryEndScreen(){
 
 function scienceQuestion() {
   closeStartSite();
+  currentQuestion = 0;
   isOnPage = 2;
   updateToNextQuestion();
   scienceQuestionsArrayLen();
@@ -215,6 +223,7 @@ function scienceProgressBar(){
     document.getElementById(`progress-bar`).style = `width: ${percent}%;`;
 }
 
+
 function updateToScience(){
     let question = scienceQuestions[currentQuestion];
     document.getElementById("question-number").innerHTML = currentQuestion + 1;
@@ -224,6 +233,7 @@ function updateToScience(){
     document.getElementById("answer_3").innerHTML = question["answer_3"];
     document.getElementById("answer_4").innerHTML = question["answer_4"];
 }
+
 
 function showScienceEndScreen(){
   document.getElementById("endScreen").style = "";
@@ -238,15 +248,18 @@ function showScienceEndScreen(){
 
 function sportQuestion() {
   closeStartSite();
+  currentQuestion = 0;
   isOnPage = 3;
   updateToNextQuestion();
   sportQuestionsArrayLen();
   showQuestion();
 }
 
+
 function sportQuestionsArrayLen() {
   document.getElementById("all-questions").innerHTML = sportQuestions.length;
 }
+
 
 function updateToSport(){
     let question = sportQuestions[currentQuestion];
@@ -277,17 +290,21 @@ function showSportEndScreen(){
 
 // GEO AREA
 
+
 function geoQuestion() {
   closeStartSite();
+  currentQuestion = 0;
   isOnPage = 4;
   updateToNextQuestion();
   geoQuestionsArrayLen();
   showQuestion();
 }
 
+
 function geoQuestionsArrayLen() {
   document.getElementById("all-questions").innerHTML = geoQuestions.length;
 }
+
 
 function updateToGeo(){
     let question = geoQuestions[currentQuestion];

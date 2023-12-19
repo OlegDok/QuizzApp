@@ -32,9 +32,6 @@ h5{
 .width-85-vw{
     width: 85vw !important;
 }
-.height-70-vh{
-    height: 70vh!important;
-}
 .gap-8px{
     display: flex;
     gap: 8px;
@@ -46,7 +43,10 @@ h5{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 120px
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 .h-line{
     height: 1px;
@@ -61,6 +61,7 @@ h5{
     background-color: #052C65;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-top: 40px;
 }
 .font-size-36px{
@@ -99,9 +100,16 @@ h5{
     opacity: 90%;
 }
 .brain-img{
-    height: 100%;
+    height: 80vh;
     width: 100%;
     object-fit: cover;
+}
+.start-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 .topic-button{
     display: flex;
@@ -112,4 +120,48 @@ h5{
 .winner-img{
     display: flex;
     justify-content: center;
+}
+@media(max-width : 950px){
+    .main-container{
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+    .card{ flex-direction: column!important;
+        }
+    .margin-lr-16px {
+            margin-right: 16px;
+            margin-left: 16px;
+        }
+    .topic-button {
+            flex-direction: row;
+            padding-bottom: 20px;
+        }
+    .header-img{
+            width: 200px;
+        }
+    .padding-bottom-80px {
+            padding-bottom: 40px;
+        }
+        .h-line{
+            display: none;
+        }
+        .brain-img{
+            height: 100%;
+        }
+    
+}
+@media (max-width:580px){
+    .topic-button {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+}
+@media (max-width:480px){
+    .main-container{
+        margin:0;
+    }
+}
+
+@media (min-width : 1600px) {
+    
 }
