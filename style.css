@@ -6,6 +6,14 @@
     font-family: "rubik-m";
     src: url("./fonts/Rubik-Medium.ttf");
   }
+  @font-face {
+    font-family: "ptSans-r";
+    src: url("./fonts/PTSans-Regular.ttf");
+  }
+  @font-face {
+    font-family: "ptSans-b";
+    src: url("./fonts/PTSans-Bold.ttf");
+  }
 
 body{
     min-height: 100vh;
@@ -92,6 +100,7 @@ h5{
 }
 .start-site-headline{
     position: absolute;
+    font-family: ptSans-b;
 }
 .quizz-answer-card:hover{
     cursor: pointer;
