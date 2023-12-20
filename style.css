@@ -90,6 +90,9 @@ h5{
     margin-right: 16px;
     margin-left: 16px;
 }
+.start-site-headline{
+    position: absolute;
+}
 .quizz-answer-card:hover{
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
