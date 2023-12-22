@@ -153,6 +153,25 @@ function restartGame() {
   document.getElementById("quiz-body").style = "";
   init();
 }
+// SHARE BUTTON
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("shareButton").addEventListener("click", async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Titel deines Inhalts',
+          text: 'Beschreibung deines Inhalts',
+          url: 'URL zu deinem Inhalt',
+        });
+        console.log('Inhalt erfolgreich geteilt');
+      } else {
+        throw new Error('Web Share API wird in diesem Browser nicht unterstützt.');
+      }
+    } catch (error) {
+      console.error('Fehler beim Teilen:', error.message);
+    }
+  });
+});
 
 
 // HISTORY AREA
