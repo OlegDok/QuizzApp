@@ -82,6 +82,7 @@ function isGameOver(){
   }
 }
 
+
 function answer(selection) {  
   if (isOnPage == 1) {
     handleAnswerForPage(historyQuestions, selection);
@@ -144,19 +145,28 @@ function resetAnswerButtons() {
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
 }
 
+
 function resetGame(){
   isOnPage = 0;
   rightQuestion = 0;
   currentQuestion = 0;
   answerExecuted = false;
+  document.getElementById("endScreen").style = "display:none";
+  document.getElementById("quiz-body").style = "";
 }
+
+
 function restartGame() {
   resetGame();
   document.getElementById("endScreen").style = "display:none";
   document.getElementById("quiz-body").style = "";
   init();
 }
+
+
 // SHARE BUTTON
+
+
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("shareButton").addEventListener("click", async () => {
     try {
@@ -263,9 +273,9 @@ function updateToScience(){
 
 function showScienceEndScreen(){
   document.getElementById("endScreen").style = "";
-    document.getElementById("quiz-body").style = "display:none";
-    document.getElementById("amountOfQuestions").innerHTML = scienceQuestions.length;
-    document.getElementById("amountCorrectAnswers").innerHTML = rightQuestion;
+  document.getElementById("quiz-body").style = "display:none";
+  document.getElementById("amountOfQuestions").innerHTML = scienceQuestions.length;
+  document.getElementById("amountCorrectAnswers").innerHTML = rightQuestion;
 }
 
 
