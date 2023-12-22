@@ -1,7 +1,7 @@
 let isOnPage = 0;
 let rightQuestion = 0;
 let currentQuestion = 0;
-let answerExucuted = false;
+let answerExecuted = false;
 
 let AUDIO_SUCCESS = new Audio(`audio/success.mp3`);
 let AUDIO_FAIL = new Audio(`audio/error.mp3`);
@@ -92,7 +92,7 @@ function answer(selection) {
   } else if (isOnPage == 4) {
     handleAnswerForPage(geoQuestions, selection);
   }
-  answerExucuted = true;
+  answerExecuted = true;
   document.getElementById("next-button").disabled = false;
 }
 
@@ -102,14 +102,14 @@ function handleAnswerForPage(questions, selection) {
   let selectedQuestionNumber = selection.slice(-1);
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
-  if (answerExucuted === true) {
+  if (answerExecuted === true) {
     console.log("sie haben schon eine Antwort gewählt");
   } else {
-
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
       document.getElementById(selection).parentNode.classList.add("bg-success");
       rightQuestion++;
       AUDIO_SUCCESS.play();
+      
     } else {
       document.getElementById(selection).parentNode.classList.add("bg-danger");
       document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
@@ -125,7 +125,7 @@ function rightAnswerSelected(selectedQuestionNumber,question){
 
 
 function nextQuestion() {
-  answerExucuted = false;
+  answerExecuted = false;
   currentQuestion++;
   document.getElementById("next-button").disabled = true;
   resetAnswerButtons();
@@ -144,11 +144,14 @@ function resetAnswerButtons() {
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
 }
 
-
-function restartGame() {
+function resetGame(){
   isOnPage = 0;
   rightQuestion = 0;
   currentQuestion = 0;
+  answerExecuted = false;
+}
+function restartGame() {
+  resetGame();
   document.getElementById("endScreen").style = "display:none";
   document.getElementById("quiz-body").style = "";
   init();
@@ -178,6 +181,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function historyQuestion() {
+  resetGame();
+  resetAnswerButtons();
   closeStartSite();
   currentQuestion = 0;
   isOnPage = 1
@@ -222,6 +227,8 @@ function showHistoryEndScreen(){
 
 
 function scienceQuestion() {
+  resetGame();
+  resetAnswerButtons();
   closeStartSite();
   currentQuestion = 0;
   isOnPage = 2;
@@ -266,6 +273,8 @@ function showScienceEndScreen(){
 
 
 function sportQuestion() {
+  resetGame();
+  resetAnswerButtons();
   closeStartSite();
   currentQuestion = 0;
   isOnPage = 3;
@@ -311,6 +320,8 @@ function showSportEndScreen(){
 
 
 function geoQuestion() {
+  resetGame();
+  resetAnswerButtons();
   closeStartSite();
   currentQuestion = 0;
   isOnPage = 4;
