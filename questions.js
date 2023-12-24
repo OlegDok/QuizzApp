@@ -1,7 +1,7 @@
 
 let historyQuestions = [
     {
-      question: "In welchem Jahr endete der Zweite Weltkrieg?",
+      question: "In welchem Jahr endete der zweite Weltkrieg?",
       answer_1: "1943",
       answer_2: "1945",
       answer_3: "1950",
@@ -9,7 +9,7 @@ let historyQuestions = [
       right_answer: 2,
     },
     {
-      question: "Wer war der erste Präsident der Vereinigten Staaten?",
+      question: "Wer war der erste Präsident der vereinigten Staaten?",
       answer_1: "George Washington",
       answer_2: "Thomas Jefferson",
       answer_3: "Abraham Lincoln",
@@ -17,7 +17,7 @@ let historyQuestions = [
       right_answer: 1,
     },
     {
-      question: "In welchem Jahr endete der Erste Weltkrieg?",
+      question: "In welchem Jahr endete der erste Weltkrieg?",
       answer_1: "1914",
       answer_2: "1917",
       answer_3: "1918",
@@ -41,7 +41,7 @@ let historyQuestions = [
       right_answer: 2,
     },
     {
-      question: "Welches Ereignis führte zur Französischen Revolution?",
+      question: "Welches Ereignis führte zur französischen Revolution?",
       answer_1: "Der Schwarze Tod",
       answer_2: "Die Entdeckung Amerikas",
       answer_3: "Die Hinrichtung Ludwig XVI.",
