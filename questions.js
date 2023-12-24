@@ -25,7 +25,7 @@ let historyQuestions = [
       right_answer: 3,
     },
     {
-      question: "Welcher berühmte Herrscher regierte im antiken Rom und wurde am 15. März 44 v. Chr. ermordet?",
+      question:`Welcher berühmte Herrscher regierte im antiken Rom und wurde am 15. März 44 v. Chr. ermordet?`,
       answer_1: "Julius Caesar",
       answer_2: "Alexander der Große",
       answer_3: "Augustus",

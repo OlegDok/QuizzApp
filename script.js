@@ -7,6 +7,16 @@ let AUDIO_SUCCESS = new Audio(`audio/success.mp3`);
 let AUDIO_FAIL = new Audio(`audio/error.mp3`);
 let AUDIO_FINISH = new Audio(`audio/finish.mp3`);
 
+let windowWidth = window.addEventListener("resize", function(event) {
+  console.log(document.body.clientWidth + ' wide by ');
+  if (windowWidth <= 660) {
+    getElementById("card").classList.remove('m-5');
+  }
+   if (windowWidth >= 890) {
+    cardElement.classList.add('m-5');
+  }
+}
+)
 
 function init() {
   document.getElementById("startSite").style = "";
@@ -99,21 +109,26 @@ function answer(selection) {
 
 
 function handleAnswerForPage(questions, selection) {
+  
   let question = questions[currentQuestion];
   let selectedQuestionNumber = selection.slice(-1);
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
-
-  if (answerExecuted === true) {
+  
+if (answerExecuted === true) {
     console.log("sie haben schon eine Antwort gewählt");
-  } else {
+  } 
+  
+  else {
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
       document.getElementById(selection).parentNode.classList.add("bg-success");
       rightQuestion++;
+      AUDIO_SUCCESS.currentTime = 0;
       AUDIO_SUCCESS.play();
       
     } else {
       document.getElementById(selection).parentNode.classList.add("bg-danger");
       document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
+      AUDIO_FAIL.currentTime = 0;
       AUDIO_FAIL.play();
     }
   }
@@ -146,21 +161,23 @@ function resetAnswerButtons() {
 }
 
 
-function resetGame(){
+function restartGame() {
   isOnPage = 0;
   rightQuestion = 0;
   currentQuestion = 0;
   answerExecuted = false;
   document.getElementById("endScreen").style = "display:none";
   document.getElementById("quiz-body").style = "";
+  init();
 }
 
-
-function restartGame() {
-  resetGame();
-  document.getElementById("endScreen").style = "display:none";
-  document.getElementById("quiz-body").style = "";
-  init();
+function displayOn(buttonId,emptyBlock) {
+  document.getElementById(buttonId).style="";
+  document.getElementById(emptyBlock).style="display:none";
+}
+function displayOff(buttonId,emptyBlock) {
+  document.getElementById(buttonId).style="display:none";
+  document.getElementById(emptyBlock).style="";
 }
 
 
@@ -191,10 +208,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function historyQuestion() {
-  resetGame();
+  restartGame();
   resetAnswerButtons();
   closeStartSite();
-  currentQuestion = 0;
   isOnPage = 1
   historyQuestionsArrayLen();
   showQuestion();
@@ -207,7 +223,7 @@ function historyQuestionsArrayLen() {
 
 
 function historyProgressBar() {
-  let percent = (currentQuestion + 1) / historyQuestions.length;
+  let percent = (currentQuestion +1) / historyQuestions.length;
     percent = Math.round(percent * 100);
     document.getElementById(`progress-bar`).innerHTML = `${percent}% `;
     document.getElementById(`progress-bar`).style = `width: ${percent}%;`;
@@ -237,10 +253,9 @@ function showHistoryEndScreen(){
 
 
 function scienceQuestion() {
-  resetGame();
+  restartGame();
   resetAnswerButtons();
   closeStartSite();
-  currentQuestion = 0;
   isOnPage = 2;
   updateToNextQuestion();
   scienceQuestionsArrayLen();
@@ -283,10 +298,9 @@ function showScienceEndScreen(){
 
 
 function sportQuestion() {
-  resetGame();
+  restartGame();
   resetAnswerButtons();
   closeStartSite();
-  currentQuestion = 0;
   isOnPage = 3;
   updateToNextQuestion();
   sportQuestionsArrayLen();
@@ -330,10 +344,9 @@ function showSportEndScreen(){
 
 
 function geoQuestion() {
-  resetGame();
+  restartGame();
   resetAnswerButtons();
   closeStartSite();
-  currentQuestion = 0;
   isOnPage = 4;
   updateToNextQuestion();
   geoQuestionsArrayLen();

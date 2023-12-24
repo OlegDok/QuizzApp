@@ -16,6 +16,7 @@
   }
 
 body{
+    height: 100vh;
     background-color:#FEFAEF!important;
     display: flex;
     justify-content: center;
@@ -46,15 +47,12 @@ h5{
 .padding-bottom-48px{
     padding-bottom: 48px;
 }
-.main-container{
+.main-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 16px 16px 16px 16px;
-    margin-left: 120px;
-    margin-right: 120px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    height: 100vh;
 }
 .h-line{
     height: 1px;
@@ -95,10 +93,6 @@ h5{
     font-size: 26px;
     font-family: 400;
 }
-.margin-lr-16px{
-    margin-right: 16px;
-    margin-left: 16px;
-}
 .start-site-headline{
     position: absolute;
     font-family: ptSans-b;
@@ -126,19 +120,75 @@ h5{
     width: 100%;
     height: 100%;
 }
-.topic-button{
+
+.header-img{
+    margin-bottom: 60px;
+}
+.topic-button-container{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    margin: 0;
+    gap: 24px;
     font-family: rubik-r;
 }
+.orange-button{
+    background-color: #FF4E0F !important;
+    border-color: #FF4E0F !important;
+}
+.orange-button:hover{
+    opacity: 0.8 !important;
+}
+.orangeFontButton{
+    color: #FF4E0F;
+    background-color: #F7D5BB;
+    border-color: #F7D5BB; 
+    border: unset;
+}
+.topicButtons {
+    width: 184px;
+    font-size: 28px;
+    color: white;
+    background-color: #052C65;
+    border: unset;
+    position: relative;
+    overflow: hidden;
+  }
+  .container-for-topic-button{
+    display: flex;
+    width: 100%;
+  }
+  .container-for-one-row-button-topic{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  .topic-button-box{
+    display: flex;
+  }
+ .current-box-button{
+    background-color:white;
+    width: 7px;
+    height: 32px;
+    left: 0;
+ }
+.orangeFontButton:hover{
+    color: #ef8a65;
+}
+
 .winner-img{
     display: flex;
     justify-content: center;
     padding-top: 40px;
+    height: 240px;
+    margin-bottom: 16px;
 }
 .endScreenContainer{
     background-color:#F7D5BB;
     padding-left: 40px;
     padding-right: 40px;
+    margin: 40px;
+}
+.empty-block{
+    height: 24px;
+    width: 8px;
 }

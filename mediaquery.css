@@ -1,45 +1,94 @@
+@media(min-width : 890px){
+.main-container {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+}
 @media(max-width : 890px){
+    .header-img{
+        display: none;
+    }
     .main-container{
         margin-left: 80px;
         margin-right: 80px;
-        margin-top: 0;
-        margin-bottom: 0;
     }
-    .card{ flex-direction: column!important;
+    .card{ 
+        height: 90vh;
+        flex-direction: column!important;
         }
     .subjekt-buttons {
+            flex-direction: row-reverse;
+            justify-content: center;
             padding-bottom: 0;
             border-radius: 16px 16px 0 0;
+            width: 100%;
         }
     .margin-lr-16px {
             margin-right: 16px;
             margin-left: 16px;
         }
-    .topic-button {
+    .topic-button-container {
             flex-direction: row;
-            padding-bottom: 20px;
+            gap: 0;
+        }
+    .topicButtons{
+            width: auto;
         }
     .header-img{
-            width: 200px;
+        width: 120px;
         }
     .padding-bottom-80px {
             padding-bottom: 40px;
         }
-        .h-line{
+    .h-line{
             display: none;
         }
-        .brain-img{
+    .brain-img{
             height: 100%;
             border-radius: 0 0 16px 16px;
         }
+    .container-for-one-row-button-topic {
+            flex-direction: column-reverse;
+        }
+    .current-box-button {
+            width: 100%;
+            height: 3px;
+            margin-bottom: 16px;
+        }
+    .container-for-topic-button {
+            justify-content: center;
+        }
     
 }
-@media (max-width:580px){
-    .topic-button {
+@media (max-width:780px){
+    .topicButtons{
+        font-size: 24px;
+    }
+    .topic-button-container{
+        gap: 16px;
+    }
+}
+@media (max-width:680px){
+    .topicButtons{
+            font-size: 22px;
+    }
+    .topic-button-container{
+            gap: 6px;
+    }
+    .winner-img{
+            height: 240px;
+            margin-bottom: 40px;
+    }
+}
+@media (max-width:610px){
+    .topic-button-container {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding-bottom: 40px;
+    }
+    .winner-img {
+        height: 180px;
+        margin-bottom: 20px;
     }
    
     .brain-img {
@@ -55,11 +104,24 @@
     }
 }
 @media (max-width:480px){
+    h5{
+        font-size: 24px!important;
+    }
+    .endScreenContainer {
+        padding-left:0;
+        padding-right:0; 
+        margin: 0;
+    }
     .main-container{
         margin:0;
     }
     .card-titele{
         font-size: 34px !important;
     }
-
+    .cardSubClass{
+        height: 100%!important;
+    }
+    .container-for-topic-button {
+        height: 120px;
+    }
 }
